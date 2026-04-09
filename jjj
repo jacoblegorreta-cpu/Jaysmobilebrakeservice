@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jay's Mobile Brake Service</title>
+  <meta
+    name="description"
+    content="Mobile brake service in the Inland Empire. Brake pads, rotors, brake bleeds, brake flushes, and more. We come to you."
+  />
+  <style>
+    :root{
+      --bg:#0b1120;
+      --panel:#111827;
+      --panel-2:#1f2937;
+      --line:#334155;
+      --text:#f8fafc;
+      --muted:#94a3b8;
+      --blue:#2563eb;
+      --blue-2:#1d4ed8;
+      --green:#22c55e;
+      --green-2:#16a34a;
+      --gold:#f59e0b;
+      --danger:#ef4444;
+      --shadow:0 10px 30px rgba(0,0,0,.28);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(37,99,235,.18), transparent 28%),
+        radial-gradient(circle at top left, rgba(34,197,94,.14), transparent 24%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.45;
+    }
+
+    .wrap{
+      width:min(1120px, 92%);
+      margin:0 auto;
+    }
+
+    .hero{
+      padding:48px 0 24px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:24px;
+      align-items:stretch;
+    }
+
+    .card{
+      background:rgba(17,24,39,.88);
+      border:1px solid rgba(148,163,184,.16);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card{
+      padding:28px;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(37,99,235,.18);
+      color:#bfdbfe;
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.3px;
+      margin-bottom:14px;
+    }
+
+    h1,h2,h3,p{margin:0 0 14px}
+    h1{
+      font-size:clamp(34px, 5vw, 58px);
+      line-height:1.02;
+      margin-bottom:14px;
+    }
+
+    .lead{
+      color:#dbeafe;
+      font-size:18px;
+      max-width:700px;
+    }
+
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:10px;
+      margin:22px 0 26px;
+    }
+
+    .point{
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(148,163,184,.12);
+      border-radius:14px;
+      padding:12px 14px;
+      color:#e2e8f0;
+      font-size:15px;
+    }
+
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:8px;
+    }
+
+    .btn{
+      appearance:none;
+      border:none;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:52px;
+      padding:0 18px;
+      border-radius:14px;
+      font-weight:700;
+      transition:transform .16s ease, background .16s ease, border-color .16s ease, opacity .16s ease;
+      font-size:15px;
+    }
+
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{
+      background:linear-gradient(180deg, var(--blue), var(--blue-2));
+      color:white;
+    }
+    .btn-secondary{
+      background:rgba(255,255,255,.04);
+      color:white;
+      border:1px solid rgba(148,163,184,.22);
+    }
+    .btn-green{
+      background:linear-gradient(180deg, var(--green), var(--green-2));
+      color:#052e16;
+    }
+
+    .mini-note{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:10px;
+    }
+
+    .hero-side{
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      background:
+        linear-gradient(180deg, rgba(37,99,235,.12), rgba(34,197,94,.07)),
+        rgba(17,24,39,.96);
+    }
+
+    .hero-side h3{
+      font-size:24px;
+      margin-bottom:10px;
+    }
+
+    .stat{
+      padding:14px 16px;
+      margin:10px 0;
+      border:1px solid rgba(148,163,184,.15);
+      border-radius:14px;
+      background:rgba(255,255,255,.03);
+    }
+
+    .stat strong{
+      display:block;
+      font-size:18px;
+      margin-bottom:4px;
+    }
+
+    section{
+      padding:18px 0 26px;
+    }
+
+    .section-title{
+      font-size:30px;
+      margin-bottom:10px;
+    }
+
+    .section-sub{
+      color:var(--muted);
+      margin-bottom:22px;
+    }
+
+    .calc-grid{
+      display:grid;
+      grid-template-columns:1fr 380px;
+      gap:24px;
+      align-items:start;
+    }
+
+    .calc-panel{
+      padding:24px;
+    }
+
+    .option-group{
+      margin-bottom:22px;
+    }
+
+    .option-group h3{
+      margin-bottom:12px;
+      font-size:19px;
+    }
+
+    .option-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:12px;
+    }
+
+    .option-grid.two{
+      grid-template-columns:repeat(2, minmax(0,1fr));
+    }
+
+    .choice{
+      width:100%;
+      text-align:left;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(148,163,184,.18);
+      color:var(--text);
+      border-radius:14px;
+      padding:14px;
+      cursor:pointer;
+      transition:all .16s ease;
+      min-height:78px;
+    }
+
+    .choice:hover{
+      border-color:rgba(96,165,250,.6);
+      transform:translateY(-1px);
+    }
+
+    .choice.active{
+      border-color:#60a5fa;
+      background:rgba(37,99,235,.18);
+      box-shadow:0 0 0 1px rgba(96,165,250,.25) inset;
+    }
+
+    .choice .label{
+      display:block;
+      font-weight:700;
+      margin-bottom:6px;
+      font-size:15px;
+    }
+
+    .choice .sub{
+      display:block;
+      color:#cbd5e1;
+      font-size:13px;
+    }
+
+    .helper{
+      font-size:14px;
+      color:#fde68a;
+      background:rgba(245,158,11,.08);
+      border:1px solid rgba(245,158,11,.18);
+      padding:12px 14px;
+      border-radius:14px;
+      margin-top:10px;
+    }
+
+    .summary{
+      position:sticky;
+      top:18px;
+      padding:24px;
+    }
+
+    .price{
+      font-size:44px;
+      font-weight:800;
+      color:#86efac;
+      line-height:1;
+      margin:8px 0 14px;
+    }
+
+    .summary-list{
+      display:grid;
+      gap:10px;
+      margin:14px 0 18px;
+    }
+
+    .summary-row{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      padding:10px 0;
+      border-bottom:1px solid rgba(148,163,184,.14);
+      font-size:15px;
+    }
+
+    .summary-row span:last-child{
+      text-align:right;
+      color:#e2e8f0;
+      font-weight:700;
+    }
+
+    .summary-note{
+      margin-top:12px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .bundle{
+      margin-top:16px;
+      padding:14px;
+      border-radius:14px;
+      background:rgba(34,197,94,.08);
+      border:1px solid rgba(34,197,94,.2);
+      color:#dcfce7;
+      font-size:14px;
+    }
+
+    .services-grid,
+    .why-grid,
+    .area-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:16px;
+    }
+
+    .info-card{
+      padding:20px;
+    }
+
+    .info-card h3{
+      font-size:20px;
+      margin-bottom:8px;
+    }
+
+    .info-card p{
+      color:#cbd5e1;
+      margin-bottom:0;
+    }
+
+    .badge{
+      display:inline-block;
+      font-size:12px;
+      font-weight:700;
+      color:#fde68a;
+      background:rgba(245,158,11,.12);
+      border:1px solid rgba(245,158,11,.2);
+      border-radius:999px;
+      padding:6px 10px;
+      margin-bottom:12px;
+    }
+
+    .cta-banner{
+      padding:24px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      gap:16px;
+      align-items:center;
+    }
+
+    .footer{
+      padding:28px 0 42px;
+      color:var(--muted);
+      text-align:center;
+      font-size:14px;
+    }
+
+    .small{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,
+      .calc-grid,
+      .services-grid,
+      .why-grid,
+      .area-grid{
+        grid-template-columns:1fr;
+      }
+
+      .option-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-points{
+        grid-template-columns:1fr;
+      }
+
+      .summary{
+        position:static;
+      }
+
+      .cta-row{
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="card hero-card">
+          <div class="eyebrow">MOBILE BRAKE SERVICE • WE COME TO YOU</div>
+          <h1>Brake service made simple.</h1>
+          <p class="lead">
+            Fast, honest mobile brake service for drivers across the Inland Empire.
+            Brake pads, rotors, brake bleeds, brake flushes, and more. No shop waiting room. No circus tent pricing.
+          </p>
+
+          <div class="hero-points">
+            <div class="point">✅ Front, rear, or full brake jobs</div>
+            <div class="point">✅ Most vehicles serviced at your location</div>
+            <div class="point">✅ Bundle and save on both axles</div>
+            <div class="point">✅ Brake bleed and flush options available</div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="tel:+19516498290">📞 Call Now</a>
+            <a class="btn btn-green" href="sms:+19516498290?body=Hi%20Jay%2C%20I%20need%20a%20brake%20quote.">💬 Text for Quote</a>
+            <a class="btn btn-secondary" href="#calculator">🧮 See Pricing Calculator</a>
+          </div>
+
+          <div class="mini-note">
+            Serving the Inland Empire. Mobile pricing shown is estimate-based and may vary depending on vehicle, brake system, and part quality.
+          </div>
+        </div>
+
+        <div class="card hero-side">
+          <h3>Popular brake specials</h3>
+
+          <div class="stat">
+            <strong>$99 Front or Rear Pads</strong>
+            Most standard vehicles
+          </div>
+
+          <div class="stat">
+            <strong>$150 Pads + Rotors</strong>
+            Starting price for standard front or rear service
+          </div>
+
+          <div class="stat">
+            <strong>Spongy pedal?</strong>
+            Add a brake bleed and get that pedal feeling right
+          </div>
+
+          <div class="stat">
+            <strong>Brake fluid maintenance matters</strong>
+            Old fluid can hold moisture and contribute to contamination and expensive ABS problems
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="calculator">
+      <h2 class="section-title">Brake pricing calculator</h2>
+      <p class="section-sub">
+        Pick your vehicle, axle, and service. Your estimate updates live.
+      </p>
+
+      <div class="calc-grid">
+        <div class="card calc-panel">
+
+          <div class="option-group">
+            <h3>1. Choose vehicle type</h3>
+            <div class="option-grid" id="vehicleOptions">
+              <button class="choice active" data-group="vehicle" data-value="standard">
+                <span class="label">Standard</span>
+                <span class="sub">Base pricing</span>
+              </button>
+              <button class="choice" data-group="vehicle" data-value="suv">
+                <span class="label">SUV / Truck</span>
+                <span class="sub">+$15 per axle service</span>
+              </button>
+              <button class="choice" data-group="vehicle" data-value="foreign">
+                <span class="label">Foreign / European</span>
+                <span class="sub">+$40 per axle service</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="option-group">
+            <h3>2. Select axle</h3>
+            <div class="option-grid" id="axleOptions">
+              <button class="choice active" data-group="axle" data-value="front">
+                <span class="label">Front</span>
+                <span class="sub">Single axle service</span>
+              </button>
+              <button class="choice" data-group="axle" data-value="rear">
+                <span class="label">Rear</span>
+                <span class="sub">Rear service may cost a bit more</span>
+              </button>
+              <button class="choice" data-group="axle" data-value="both">
+                <span class="label">Both Axles</span>
+                <span class="sub">Bundle and save 💰</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="option-group">
+            <h3>3. Select service</h3>
+            <div class="option-grid" id="serviceOptions">
+              <button class="choice active" data-group="service" data-value="pads">
+                <span class="label">Brake Pads</span>
+                <span class="sub">$99 starting price</span>
+              </button>
+              <button class="choice" data-group="service" data-value="pads_rotors">
+                <span class="label">Pads + Rotors</span>
+                <span class="sub">$150+ starting price</span>
+              </button>
+              <button class="choice" data-group="service" data-value="bleed">
+                <span class="label">Brake Bleed</span>
+                <span class="sub">Starting at $75</span>
+              </button>
+            </div>
+
+            <div class="helper">
+              💧 <strong>Spongy pedal?</strong> A brake bleed can help restore proper pedal feel after brake work or when air is trapped in the system.
+            </div>
+          </div>
+
+          <div class="option-group">
+            <h3>4. Add-ons</h3>
+            <div class="option-grid two" id="addonOptions">
+              <button class="choice" data-group="flush" data-value="yes">
+                <span class="label">Add Brake Flush</span>
+                <span class="sub">+$125 recommended maintenance</span>
+              </button>
+              <button class="choice active" data-group="flush" data-value="no">
+                <span class="label">No Flush</span>
+                <span class="sub">Keep estimate as-is</span>
+              </button>
+            </div>
+
+            <div class="helper">
+              💡 <strong>Did you know?</strong> Brake fluid absorbs moisture over time. A flush helps prevent contamination and may help protect brake lines and ABS components.
+            </div>
+          </div>
+
+          <div class="option-group">
+            <h3>What’s included</h3>
+            <p class="small">
+              Estimates are based on labor-style menu pricing and common brake service packages.
+              Final price can change depending on seized hardware, electronic parking brake systems,
+              heavy-duty brake packages, performance brakes, rotor condition, and parts selected.
+            </p>
+          </div>
+        </div>
+
+        <div class="card summary">
+          <h3>Your estimate</h3>
+          <div class="price" id="totalPrice">$99</div>
+
+          <div class="summary-list">
+            <div class="summary-row">
+              <span>Vehicle</span>
+              <span id="summaryVehicle">Standard</span>
+            </div>
+            <div class="summary-row">
+              <span>Axle</span>
+              <span id="summaryAxle">Front</span>
+            </div>
+            <div class="summary-row">
+              <span>Service</span>
+              <span id="summaryService">Brake Pads</span>
+            </div>
+            <div class="summary-row">
+              <span>Add-on</span>
+              <span id="summaryAddon">No Flush</span>
+            </div>
+          </div>
+
+          <div class="bundle" id="bundleMessage">
+            Bundle pricing appears automatically when both axles are selected.
+          </div>
+
+          <div class="cta-row" style="margin-top:18px;">
+            <a class="btn btn-primary" href="tel:+19516498290">📞 Call Jay</a>
+            <a class="btn btn-green" href="sms:+19516498290?body=Hi%20Jay%2C%20I%20used%20the%20website%20calculator%20and%20want%20a%20brake%20quote.">💬 Text This Quote</a>
+          </div>
+
+          <div class="summary-note" id="priceNote">
+            Estimate only. Price may vary by vehicle and brake setup.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Services</h2>
+      <p class="section-sub">Straight-up brake work without the headache.</p>
+      <div class="services-grid">
+        <div class="card info-card">
+          <span class="badge">MOST REQUESTED</span>
+          <h3>Brake Pads</h3>
+          <p>
+            Front or rear brake pad replacement for most standard vehicles with mobile service convenience.
+          </p>
+        </div>
+        <div class="card info-card">
+          <span class="badge">POPULAR</span>
+          <h3>Pads + Rotors</h3>
+          <p>
+            Complete axle service for customers who want fresh friction surfaces and smooth braking feel.
+          </p>
+        </div>
+        <div class="card info-card">
+          <span class="badge">PEDAL FEEL</span>
+          <h3>Brake Bleed / Flush</h3>
+          <p>
+            Great for spongy pedal complaints, maintenance, or after brake hydraulic work.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Why drivers book with Jay</h2>
+      <p class="section-sub">Built for convenience, trust, and clean work.</p>
+      <div class="why-grid">
+        <div class="card info-card">
+          <h3>We come to you</h3>
+          <p>
+            Home, work, apartment, driveway. Mobile service means less downtime and less hassle.
+          </p>
+        </div>
+        <div class="card info-card">
+          <h3>Clear pricing</h3>
+          <p>
+            Easy-to-understand starting prices, add-ons, and bundle options without mystery math.
+          </p>
+        </div>
+        <div class="card info-card">
+          <h3>Brake-focused service</h3>
+          <p>
+            Brake jobs, brake inspections, pedal feel concerns, and maintenance recommendations that actually make sense.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Service area</h2>
+      <p class="section-sub">Serving the Inland Empire and surrounding areas.</p>
+      <div class="area-grid">
+        <div class="card info-card">
+          <h3>Common areas</h3>
+          <p>Perris, Moreno Valley, Hemet, Menifee, Lake Elsinore, Riverside, and nearby cities.</p>
+        </div>
+        <div class="card info-card">
+          <h3>Mobile convenience</h3>
+          <p>Travel-based pricing may apply depending on distance and job size.</p>
+        </div>
+        <div class="card info-card">
+          <h3>Need a quote?</h3>
+          <p>Text your year, make, model, and what service you need for a faster estimate.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card cta-banner">
+        <div>
+          <h2 style="margin-bottom:6px;">Need brakes done today?</h2>
+          <p class="section-sub" style="margin:0;">
+            Call or text now to check availability and get your quote rolling.
+          </p>
+        </div>
+        <div class="cta-row" style="margin-top:0;">
+          <a class="btn btn-primary" href="tel:+19516498290">📞 Call Now</a>
+          <a class="btn btn-green" href="sms:+19516498290?body=Hi%20Jay%2C%20I%20need%20a%20mobile%20brake%20quote.">💬 Text Now</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      Jay's Mobile Brake Service • Mobile brake service • Inland Empire<br>
+      <span class="small">Website estimate tool for customer convenience. Final pricing may vary by vehicle condition, parts, and labor complexity.</span>
+    </div>
+  </div>
+
+  <script>
+    const state = {
+      vehicle: "standard",
+      axle: "front",
+      service: "pads",
+      flush: "no"
+    };
+
+    const labels = {
+      vehicle: {
+        standard: "Standard",
+        suv: "SUV / Truck",
+        foreign: "Foreign / European"
+      },
+      axle: {
+        front: "Front",
+        rear: "Rear",
+        both: "Both Axles"
+      },
+      service: {
+        pads: "Brake Pads",
+        pads_rotors: "Pads + Rotors",
+        bleed: "Brake Bleed"
+      },
+      flush: {
+        yes: "Brake Flush",
+        no: "No Flush"
+      }
+    };
+
+    function getEstimate() {
+      let total = 0;
+      let note = "Estimate only. Price may vary by vehicle and brake setup.";
+      let bundleText = "Bundle pricing appears automatically when both axles are selected.";
+
+      const rearExtra = 25;
+      const bothDiscount = 25;
+
+      let vehicleAdderPerAxle = 0;
+      if (state.vehicle === "suv") vehicleAdderPerAxle = 15;
+      if (state.vehicle === "foreign") vehicleAdderPerAxle = 40;
+
+      if (state.service === "pads") {
+        if (state.axle === "front") total = 99;
+        if (state.axle === "rear") total = 99 + rearExtra;
+        if (state.axle === "both") {
+          total = (99 * 2) + rearExtra - bothDiscount;
+          bundleText = "💰 Bundle applied: both axle brake pad service includes a savings discount.";
+        }
+      }
+
+      if (state.service === "pads_rotors") {
+        if (state.axle === "front") total = 150;
+        if (state.axle === "rear") total = 150 + rearExtra;
+        if (state.axle === "both") {
+          total = (150 * 2) + rearExtra - bothDiscount;
+          bundleText = "💰 Bundle applied: both axle pads + rotors includes a savings discount.";
+        }
+      }
+
+      if (state.service === "bleed") {
+        if (state.axle === "front" || state.axle === "rear") {
+          total = 75;
+          bundleText = "Brake bleed is priced as a hydraulic service, not a per-axle pad package.";
+        }
+        if (state.axle === "both") {
+          total = 75;
+          bundleText = "Brake bleed is priced as a hydraulic service, not a per-axle pad package.";
+        }
+      }
+
+      if (state.service !== "bleed") {
+        if (state.axle === "front" || state.axle === "rear") total += vehicleAdderPerAxle;
+        if (state.axle === "both") total += vehicleAdderPerAxle * 2;
+      } else {
+        // For brake bleed, keep it simple with a single vehicle adder if needed
+        total += state.vehicle === "suv" ? 15 : 0;
+        total += state.vehicle === "foreign" ? 40 : 0;
+      }
+
+      if (state.flush === "yes") {
+        total += 125;
+        note = "Estimate includes brake flush add-on. Great maintenance option for moisture-contaminated fluid.";
+      }
+
+      return {
+        total,
+        note,
+        bundleText
+      };
+    }
+
+    function updateSummary() {
+      const result = getEstimate();
+
+      document.getElementById("totalPrice").textContent = "$" + result.total;
+      document.getElementById("summaryVehicle").textContent = labels.vehicle[state.vehicle];
+      document.getElementById("summaryAxle").textContent = labels.axle[state.axle];
+      document.getElementById("summaryService").textContent = labels.service[state.service];
+      document.getElementById("summaryAddon").textContent = state.flush === "yes" ? "Brake Flush (+$125)" : "No Flush";
+      document.getElementById("bundleMessage").textContent = result.bundleText;
+      document.getElementById("priceNote").textContent = result.note;
+    }
+
+    function handleChoiceClick(button) {
+      const group = button.dataset.group;
+      const value = button.dataset.value;
+      state[group] = value;
+
+      document.querySelectorAll(`.choice[data-group="${group}"]`).forEach(btn => {
+        btn.classList.remove("active");
+      });
+
+      button.classList.add("active");
+      updateSummary();
+    }
+
+    document.querySelectorAll(".choice").forEach(button => {
+      button.addEventListener("click", () => handleChoiceClick(button));
+    });
+
+    updateSummary();
+  </script>
+</body>
+</html>
